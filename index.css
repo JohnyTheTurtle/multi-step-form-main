@@ -50,11 +50,20 @@ body{
     max-width: var(--mobile-image-width);
     background-image: url(./assets/images/bg-sidebar-mobile.svg);
     background-repeat: no-repeat;
-    border: solid 1px red;
     background-color: var(--Magnolia);
+
+    overflow: hidden;
+}
+.all-forms{
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+}
+form{
+    min-width: 100%;
 }
 .inputs {
-    height: 100%;
+    height: 80%;
     width: calc(100% - 2rem);
     position: relative;
     margin: 0 1rem;
@@ -93,7 +102,7 @@ input:not([type=submit]){
     box-shadow: 0 0 0 1px var(--Cool-gray);
     padding: 0.75rem 1rem;
     color: var(--Marine-blue);
-    font-weight: bold;
+    font-weight: bold  ;
 }
 input::placeholder{
     color: var(--Cool-gray);
@@ -153,13 +162,34 @@ input::placeholder{
     position: relative;
     margin: 0 0 0 auto;
 }
+.navigation input[value="Confirm"]{
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    color: var(--Magnolia);
+    background-color: var(--Marine-blue);
+    font-size: 16px;
+    position: relative;
+    margin: 0 0 0 auto;
+}
+.navigation input[value="Go Back"]{
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    color: var(--Cool-gray);
+    background-color: transparent;
+    font-size: 16px;
+    position: relative;
+    margin: 0 auto 0 0;
+}
 .navigation input:hover{
     filter: brightness(150%);
     cursor: pointer;
 }
 @media (width > 900px){
     .multi-form{
-        max-width: fit-content;
+        /* max-width: fit-content; */
+        min-width: calc(var(--desktop-image-height) + var(--desktop-image-width));
         display: flex;
         flex-direction: row;
         background-image: url(./assets/images/bg-sidebar-desktop.svg);
@@ -167,7 +197,18 @@ input::placeholder{
         background-color: var(--White);
         margin: 1rem;
         border-radius: 10px;
+    }
+    .all-forms{
+        width: calc(var(--desktop-image-height));
+        display: flex;
+        flex-direction: row;
         overflow: hidden;
+    }
+    form{
+        min-width: calc(var(--desktop-image-height));
+    }
+    .inputs{
+        height: 100%;
     }
     .sidebar {
         min-width: var(--desktop-image-width);
