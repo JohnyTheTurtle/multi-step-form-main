@@ -1,0 +1,203 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url(./assets/fonts/Ubuntu-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: Ubuntu;
+    src: url(./assets/fonts/Ubuntu-Medium.ttf);
+    font-weight: medium;
+}
+@font-face {
+    font-family: Ubuntu;
+    src: url(./assets/fonts/Ubuntu-Bold.ttf);
+    font-weight: bold;
+}
+:root{
+    --mobile-image-width: 375px;
+    --mobile-image-height: 172px;
+    --mobile-sidebar-circle-size: 40px;
+    --desktop-image-width: 274px;
+    --desktop-image-height: 568px;
+    --desktop-sidebar-circle-size: 40px;
+    /* ## Colors */
+    --Marine-blue: hsl(213, 96%, 18%);
+    --Purplish-blue: hsl(243, 100%, 62%);
+    --Pastel-blue: hsl(228, 100%, 84%);
+    --Light-blue: hsl(206, 94%, 87%);
+    --Strawberry-red: hsl(354, 84%, 57%);
+
+    --Cool-gray: hsl(231, 11%, 63%);
+    --Light-gray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Ubuntu, sans-serif;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+}
+.multi-form{
+    margin: 0 auto;
+    max-width: var(--mobile-image-width);
+    background-image: url(./assets/images/bg-sidebar-mobile.svg);
+    background-repeat: no-repeat;
+    border: solid 1px red;
+    background-color: var(--Magnolia);
+}
+.inputs {
+    height: 100%;
+    width: calc(100% - 2rem);
+    position: relative;
+    margin: 0 1rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--White);
+    overflow: hidden;
+}
+.inputs  > *:not(label){
+    padding: 0 0 1rem 0;
+}
+.inputs h2{
+    color: var(--Marine-blue);
+    font-weight: bold;
+    font-size: 28px;
+}
+.inputs p {
+    color: var(--Cool-gray);
+    font-size: 18px;
+    line-height: 1.75rem;
+    font-weight: normal;
+}
+label {
+    color: var(--Marine-blue);
+    display: block;
+    padding-bottom: 0.2rem;
+    margin: 0;
+    font-size: 15px;
+}
+input:not([type=submit]){
+    margin-bottom: 1rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px var(--Cool-gray);
+    padding: 0.75rem 1rem;
+    color: var(--Marine-blue);
+    font-weight: bold;
+}
+input::placeholder{
+    color: var(--Cool-gray);
+    font-weight: bold;
+    font-size: 16px;
+}
+.sidebar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0 1.75rem 0;
+}
+.step-name {
+    display: none;
+    text-transform: uppercase;
+    color: var(--White);
+    font-weight: normal;
+}
+.step-name p{
+    color: var(--Cool-gray);
+    line-height: 1.2rem;
+}
+.step-number{
+    width: var(--mobile-sidebar-circle-size);
+    height: var(--mobile-sidebar-circle-size);
+    box-shadow: 0 0 0 1.5px var(--White);
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: var(--mobile-sidebar-circle-size);
+    font-weight: normal;
+    color: var(--White);
+}
+.step-number.active{
+    font-weight: bold;
+    color: var(--Marine-blue);
+    background-color: var(--Light-blue);
+    box-shadow: 0 0 0 0;
+}
+.navigation{
+    position: relative;
+    width: 100%;
+    background-color: var(--White);
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+.navigation input[value="Next Step"]{
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    color: var(--Magnolia);
+    background-color: var(--Marine-blue);
+    font-size: 16px;
+    position: relative;
+    margin: 0 0 0 auto;
+}
+.navigation input:hover{
+    filter: brightness(150%);
+    cursor: pointer;
+}
+@media (width > 900px){
+    .multi-form{
+        max-width: fit-content;
+        display: flex;
+        flex-direction: row;
+        background-image: url(./assets/images/bg-sidebar-desktop.svg);
+        height: var(--desktop-image-height);
+        background-color: var(--White);
+        margin: 1rem;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .sidebar {
+        min-width: var(--desktop-image-width);
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        grid-template-rows: repeat(4,min-content);
+        padding: 3rem 0 0 3rem;
+        row-gap: 2rem;
+        align-items: self-start;
+        justify-content: start;
+    }
+    .step-name {
+        display: block;
+    }
+    .navigation{
+        bottom: 6rem;
+        background-color: none;
+        padding-right: 2.25rem;
+    }
+}
+
+
+
+
+
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
