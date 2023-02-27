@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./toggle-button.css">
   <script src="./app.js" defer></script>
   <title>Frontend Mentor | Multi-step form</title>
 
@@ -24,7 +25,7 @@
         <div class="step-name"><p>Step 4</p> Summary</div>
       </div>
       <div class="all-forms">
-        <form action="#">
+        <form action="javascript:void(0);" onsubmit="" id="Step1">
           <div class="inputs">
             <h2>Personal info</h2>
             <p>Please provide your name, email address, and phone number.</p>
@@ -39,48 +40,77 @@
             <input type="submit" value="Next Step">
           </div>
         </form>
-        <form action="#" onsubmit="">
+
+        <form action="javascript:void(0);" onsubmit="" id="Step2">
           <div class="inputs">
-            <h2>Personal info</h2>
-            <p>Please provide your name, email address, and phone number.</p>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="" placeholder="e.g. Stephen King">
-            <label for="email">Email Address</label>
-            <input type="email" name="email" id="" placeholder="e.g. stephenking@lorem.com">
-            <label for="phone">Phone Number</label>
-            <input type="tel" name="phone" id="" placeholder="e.g. +1 234 567 890">
+            <h2>Select your plan</h2>
+            <p>You have the option of monthly or yearly billing.</p>
+            <input type="radio" id="plan-arcade" name="plan" value="Arcade">
+            <label for="plan-arcade">
+              <img src="./assets/images/icon-arcade.svg" alt="">
+              <h3>Arcade</h3>
+              <p class="rate">$9/mo</p>
+            </label>
+            <input type="radio" id="plan-advanced" name="plan" value="Advanced">
+            <label for="plan-advanced">
+              <img src="./assets/images/icon-advanced.svg" alt="">
+              <h3>Advanced</h3>
+              <p class="rate">$12/mo</p>
+            </label>
+            <input type="radio" id="plan-pro" name="plan" value="Pro">
+            <label for="plan-pro">
+              <img src="./assets/images/icon-pro.svg" alt="">
+              <h3>Pro</h3>
+              <p class="rate">$15/mo</p>
+            </label>
+            <div class="time-plan">
+              <label for="plan-duration">Monthly</label>
+              <input type="checkbox" id="plan-duration" class="toggle">
+              <label for="plan-duration">Yearly</label>
+            </div>
           </div>
           <div class="navigation">
             <input type="submit" value="Go Back">
             <input type="submit" value="Next Step">
           </div>
         </form>
-        <form action="#" onsubmit="">
+
+        <form action="javascript:void(0);" onsubmit="" id="Step3">
           <div class="inputs">
-            <h2>Personal info</h2>
-            <p>Please provide your name, email address, and phone number.</p>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="" placeholder="e.g. Stephen King">
-            <label for="email">Email Address</label>
-            <input type="email" name="email" id="" placeholder="e.g. stephenking@lorem.com">
-            <label for="phone">Phone Number</label>
-            <input type="tel" name="phone" id="" placeholder="e.g. +1 234 567 890">
+            <h2>Pick add-ons</h2>
+            <p>Add-ons help enhance your gaming experience.</p>
+            <label for="online-service">
+              <input type="checkbox" id="online-service" name="service" value="online">
+              <h3>Online service</h3>
+              <p class="add-desc">Access to multiplayer games</p>
+              <p class="add-gain">+$1/mo</p>
+            </label>
+            <label for="storage-service">
+              <input type="checkbox" id="storage-service" name="service" value="online">
+              <h3>Larger storage</h3>
+              <p class="add-desc">Extra 1TB of cloud save</p>
+              <p class="add-gain">+$2/mo</p>
+            </label>
+            <label for="profile-service">
+              <input type="checkbox" id="profile-service" name="service" value="online">
+              <h3>Customizable profile</h3>
+              <p class="add-desc">Custom theme on your profile</p>
+              <p class="add-gain">+$2/mo</p>
+            </label>
           </div>
           <div class="navigation">
             <input type="submit" value="Go Back">
             <input type="submit" value="Next Step">
           </div>
         </form>
-        <form action="#" onsubmit="">
+
+        <form action="javascript:void(0);" onsubmit="" id="Step4">
           <div class="inputs">
-            <h2>Personal info</h2>
-            <p>Please provide your name, email address, and phone number.</p>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="" placeholder="e.g. Stephen King">
-            <label for="email">Email Address</label>
-            <input type="email" name="email" id="" placeholder="e.g. stephenking@lorem.com">
-            <label for="phone">Phone Number</label>
-            <input type="tel" name="phone" id="" placeholder="e.g. +1 234 567 890">
+            <h2>Finishing up</h2>
+            <p>Double-check everything looks OK before confirming.</p>
+            <div class="order-summary">
+              <div class="tess">tes</div>
+            </div>
           </div>
           <div class="navigation">
             <input type="submit" value="Go Back">
@@ -96,45 +126,9 @@
 
   <!-- Step 2 start -->
 
-  Select your plan
-  You have the option of monthly or yearly billing.
-
-  Arcade
-  $9/mo
-
-  Advanced
-  $12/mo
-
-  Pro
-  $15/mo
-
-  Monthly
-  Yearly
-
-  Go Back
-  Next Step
-
   <!-- Step 2 end -->
 
   <!-- Step 3 start -->
-
-  Pick add-ons
-  Add-ons help enhance your gaming experience.
-
-  Online service
-  Access to multiplayer games
-  +$1/mo
-
-  Larger storage
-  Extra 1TB of cloud save
-  +$2/mo
-
-  Customizable Profile
-  Custom theme on your profile
-  +$2/mo
-
-  Go Back
-  Next Step
 
   <!-- Step 3 end -->
 

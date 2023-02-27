@@ -86,14 +86,14 @@ form{
     line-height: 1.75rem;
     font-weight: normal;
 }
-label {
+label:not(.time-plan label) {
     color: var(--Marine-blue);
     display: block;
     padding-bottom: 0.2rem;
     margin: 0;
     font-size: 15px;
 }
-input:not([type=submit]){
+input:not([type=submit], [name="time-plan"]){
     margin-bottom: 1rem;
     width: 100%;
     outline: none;
@@ -186,6 +186,159 @@ input::placeholder{
     filter: brightness(150%);
     cursor: pointer;
 }
+#Step2 input[type="radio"]:not(input[name="time-plan"], input[name="service"]) {
+    display: none;
+}
+#Step2 .inputs {
+    display: grid;
+    grid-template-areas: 
+    "a"
+    "b"
+    "c"
+    "d"
+    "e"
+    "f"
+    "g";
+    grid-template-rows: min-content min-content;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+#Step2 .inputs h2{
+    grid-area: a;
+}
+#Step2 .inputs p{
+    grid-area: b;
+}
+.time-plan{
+    grid-area: f;
+}
+#Step2 .inputs label:not(.time-plan label){
+    max-width: calc(100%);
+    box-shadow: 0 0 0 1px var(--Light-gray);
+    border-radius: 10px;
+    padding: 1rem;
+    display: grid;
+    grid-template-areas: 
+    "a b"
+    "a c"
+    "a d";
+    grid-template-columns: min-content;
+    column-gap: 1rem;
+    position: relative;
+}
+#Step2 .inputs label img {
+    grid-area: a;
+}
+#Step2 .inputs label h3 {
+    grid-area: b;
+}
+#Step2 .inputs label .rate {
+    grid-area: c;
+}
+#Step2 .inputs label .promo{
+    grid-area: d;
+    color: var(--Marine-blue);
+    font-size: 15px;
+}
+#Step2 .inputs label:nth-of-type(1){
+    grid-area: c;
+}
+#Step2 .inputs label:nth-of-type(2){
+    grid-area: d;
+}
+#Step2 .inputs label:nth-of-type(3){
+    grid-area: e;
+}
+#Step2 .inputs label:hover:not(.time-plan label){
+    cursor: pointer;
+    box-shadow: 0 0 0 1px var(--Purplish-blue);
+}
+.time-plan, .time-plan label{
+    cursor: pointer;
+}
+#Step2 .inputs input[type='radio']:checked:not(input[name="time-plan"] , input[name="service"]) + label{
+    box-shadow: 0 0 0 1px var(--Purplish-blue);
+    background-color: var(--Alabaster);
+}
+#Step3 label {
+    display: grid;
+    grid-template-areas: 
+    "a b c"
+    "a d c";
+    grid-template-columns: min-content;
+    row-gap: 0.2rem;
+    column-gap: 0.2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+}
+#Step3 label:not(.active-service) {
+    box-shadow: 0 0 0 1px var(--Cool-gray);
+}
+.active-service{
+    box-shadow: 0 0 0 1px var(--Purplish-blue);
+    background-color: var(--Alabaster);
+}
+#Step3 label input {
+    grid-area: a;
+    outline: 0;
+    box-shadow: none ;
+    appearance: none;
+    border: none;
+    border-radius: 5px;
+    margin-right: 0.75rem;
+    justify-self: center;
+}
+#Step3 label input::after{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: "";
+    font-size: 1.4em;
+    height: 1.5rem;
+    width: 1.5rem;
+    left: 1rem;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--White);
+    box-shadow: 0 0 0 1px var(--Cool-gray);
+}
+#Step3 label input:checked::after{
+    content: "\2713";
+    background-color: var(--Purplish-blue);
+}
+#Step3 label input[type="checkbox"]:focus{
+    outline:0;
+}
+#Step3 label h3 {
+    grid-area: b;
+    font-size: 15px;
+}
+#Step3 label .add-gain{
+    grid-area: c;
+    color: var(--Purplish-blue);
+    position: relative;
+    top: 50%;
+    transform: translateY(-25%);
+    font-size: 13px;
+    justify-self: end;
+    align-self: top;
+}
+#Step3 label .add-desc{
+    grid-area: d;
+    font-size: 13px;
+}
+.order-summary{
+    width: 100%;
+    background-color: var(--Magnolia);
+    border-radius: 10px;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
 @media (width > 900px){
     .multi-form{
         /* max-width: fit-content; */
@@ -227,6 +380,31 @@ input::placeholder{
         bottom: 6rem;
         background-color: none;
         padding-right: 2.25rem;
+    }
+    #Step2 .inputs {
+        display: grid;
+        grid-template-areas: 
+        "a a a"
+        "b b b"
+        "c d e"
+        "f f f";
+        grid-template-rows: min-content min-content min-content;
+        grid-template-columns: repeat(3, 150px);
+        column-gap: 1rem;
+    }
+    #Step2 .inputs label img{
+        width: 3rem;
+        margin-bottom: 3rem;
+    }
+    #Step2 .inputs label:not(.time-plan label){
+        height: min-content;
+        display: grid;
+        grid-template-areas: 
+        "a"
+        "b"
+        "c"
+        "d";
+        grid-template-columns: max-content;
     }
 }
 

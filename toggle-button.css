@@ -1,0 +1,64 @@
+.time-plan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--Alabaster);
+    border-radius: 10px;
+    height: 3.5rem;
+}
+.time-plan label{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.time-plan label:not(.active-time){
+    color: var(--Cool-gray);
+}
+.active-time{
+    color: var(--Marine-blue);
+}
+.time-plan input {
+    display: none;
+}
+
+input[type="checkbox"].toggle + label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"].toggle + label::before {
+  content: "";
+  width: 3rem;
+  height: 1.3em;
+  background-color: var(--Marine-blue);
+  border-radius: 1em;
+  margin-right: 1.25em;
+  transition: background-color 200ms ease-in-out;
+}
+
+input[type="checkbox"].toggle + label::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  content: "";
+  font-size: .5em;
+  height: .9em;
+  left: .3em;
+  width: 1.8em;
+  height: 1.8em;
+  background-color: var(--White);
+  border-radius: 1em;
+  transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+input[type="checkbox"].toggle:checked + label::before {
+    background-color: var(--Marine-blue);
+}
+
+input[type="checkbox"].toggle:checked + label::after {
+  transform: translateX(200%);
+}
