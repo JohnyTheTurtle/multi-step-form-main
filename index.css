@@ -72,15 +72,15 @@ form{
     background-color: var(--White);
     overflow: hidden;
 }
-.inputs  > *:not(label){
+.inputs  > *:not(label, .order-summary){
     padding: 0 0 1rem 0;
 }
-.inputs h2{
+.inputs h2:not(#Step4 h2){
     color: var(--Marine-blue);
     font-weight: bold;
     font-size: 28px;
 }
-.inputs p {
+.inputs > p:not(#Step4 p) {
     color: var(--Cool-gray);
     font-size: 18px;
     line-height: 1.75rem;
@@ -100,9 +100,10 @@ input:not([type=submit], [name="time-plan"]){
     border: none;
     border-radius: 2px;
     box-shadow: 0 0 0 1px var(--Cool-gray);
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem !important;
     color: var(--Marine-blue);
     font-weight: bold  ;
+    
 }
 input::placeholder{
     color: var(--Cool-gray);
@@ -122,7 +123,7 @@ input::placeholder{
     color: var(--White);
     font-weight: normal;
 }
-.step-name p{
+.step-name > p{
     color: var(--Cool-gray);
     line-height: 1.2rem;
 }
@@ -209,7 +210,7 @@ input::placeholder{
 #Step2 .inputs p{
     grid-area: b;
 }
-.time-plan{
+#Step2 .time-plan{
     grid-area: f;
 }
 #Step2 .inputs label:not(.time-plan label){
@@ -331,13 +332,77 @@ input::placeholder{
     grid-area: d;
     font-size: 13px;
 }
-.order-summary{
+#Step4 .order-summary{
     width: 100%;
     background-color: var(--Magnolia);
     border-radius: 10px;
+    padding: 1rem !important;
+}
+#Step4 .plan-Summary {
+    border-bottom: solid 1px var(--Light-gray);
+    padding-bottom: 1rem;
+    color: var(--Marine-blue)
+}
+#Step4 .plan-Summary h3{
+    font-size: 16px;
+}
+#Step4 .plan-Summary .summary-price{
+    font-weight: bold;
+}
+#Step4 .plan-Summary a{
+    color: var(--Cool-gray);
+    font-weight: normal !important;
+    text-decoration: underline;
+    font-size: 14px;
+}
+#Step4 .plan-Summary a:hover{
+    cursor: pointer;
+}
+#Step4 .services{
+    display: inline-grid;
+    row-gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 0;
+}
+#Step4 .plan-Summary, .service-Container, #selectedSummaryPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#Step4 #selectedSummaryPrice{
     padding: 1rem;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+}
+#Step4 #selectedSummaryPrice> p:nth-of-type(1){
+    color: var(--Cool-gray);
+}
+#Step4 #selectedSummaryPrice> p:nth-of-type(2){
+    color: var(--Purplish-blue);
+    font-weight: bold;
+    font-size: 18px;
+}
+#Step4 .service-Container{
+    font-weight: normal;
+}
+#Step4 .service-Container > p:not(.summary-price){
+    color: var(--Cool-gray);
+    font-size: 14px;
+}
+#Step4 .summary-price{
+    color: var(--Marine-blue);
+    font-size: 13px;
+}
+#Step5 > .inputs{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+#Step5 > .inputs > img {
+    max-width: 60px;
+    margin: 0 auto;
+}
+#Step5 > .inputs > p {
+    font-size: 16px !important;
 }
 @media (width > 900px){
     .multi-form{
@@ -348,7 +413,7 @@ input::placeholder{
         background-image: url(./assets/images/bg-sidebar-desktop.svg);
         height: var(--desktop-image-height);
         background-color: var(--White);
-        margin: 1rem;
+        margin: 1rem auto;
         border-radius: 10px;
     }
     .all-forms{
