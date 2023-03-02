@@ -30,14 +30,14 @@
             <h2>Personal info</h2>
             <p>Please provide your name, email address, and phone number.</p>
             <label for="name">Name</label>
-            <input type="text" name="name" id="" placeholder="e.g. Stephen King">
+            <input required type="text" name="name" title="Enter a valid name." pattern="([ \u00c0-\u01ffa-zA-Z'\-])+" id="" placeholder="e.g. Stephen King">
             <label for="email">Email Address</label>
-            <input type="email" name="email" id="" placeholder="e.g. stephenking@lorem.com">
+            <input required type="email" name="email" title="Enter a valid email." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="" placeholder="e.g. stephenking@lorem.com">
             <label for="phone">Phone Number</label>
-            <input type="tel" name="phone" id="" placeholder="e.g. +1 234 567 890">
+            <input required type="tel" name="phone" title="Enter a valid phone number." pattern="[0-9]{3}[0-9]{3}[0-9]{2,4}" id="" placeholder="e.g. +1 234 567 890">
           </div>
           <div class="navigation">
-            <input type="submit" value="Next Step">
+            <input type="submit" value="Next Step" class="blocked">
           </div>
         </form>
 
@@ -45,8 +45,8 @@
           <div class="inputs">
             <h2>Select your plan</h2>
             <p>You have the option of monthly or yearly billing.</p>
-            <input type="radio" id="plan-arcade" name="plan" value="Arcade">
-            <label for="plan-arcade">
+            <input type="radio" id="plan-arcade" name="plan" value="Arcade" checked>
+            <label  for="plan-arcade">
               <img src="./assets/images/icon-arcade.svg" alt="">
               <h3>Arcade</h3>
               <p class="rate">$9/mo</p>

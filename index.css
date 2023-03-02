@@ -1,18 +1,4 @@
-@font-face {
-    font-family: Ubuntu;
-    src: url(./assets/fonts/Ubuntu-Regular.ttf);
-    font-weight: normal;
-}
-@font-face {
-    font-family: Ubuntu;
-    src: url(./assets/fonts/Ubuntu-Medium.ttf);
-    font-weight: medium;
-}
-@font-face {
-    font-family: Ubuntu;
-    src: url(./assets/fonts/Ubuntu-Bold.ttf);
-    font-weight: bold;
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 :root{
     --mobile-image-width: 375px;
     --mobile-image-height: 172px;
@@ -33,6 +19,7 @@
     --Alabaster: hsl(231, 100%, 99%);
     --White: hsl(0, 0%, 100%);
 
+    --Validation-Green: rgb(11, 145, 11);
 }
 * {
     margin: 0;
@@ -44,6 +31,7 @@ body{
     width: 100%;
     position: relative;
     font-size: 16px;
+    background-color: var(--Alabaster);
 }
 .multi-form{
     margin: 0 auto;
@@ -137,6 +125,9 @@ input::placeholder{
     line-height: var(--mobile-sidebar-circle-size);
     font-weight: normal;
     color: var(--White);
+    -webkit-transition: background-color 0.5s ease-in-out;
+    -ms-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
 }
 .step-number.active{
     font-weight: bold;
@@ -163,6 +154,9 @@ input::placeholder{
     position: relative;
     margin: 0 0 0 auto;
 }
+.navigation input[value="Next Step"].blocked{
+    background-color: var(--Cool-gray);
+}
 .navigation input[value="Confirm"]{
     padding: 1rem 2rem;
     border: none;
@@ -183,9 +177,21 @@ input::placeholder{
     position: relative;
     margin: 0 auto 0 0;
 }
-.navigation input:hover{
+.navigation input:not(.blocked):hover{
     filter: brightness(150%);
     cursor: pointer;
+}
+#Step1 input{
+    transition: box-shadow 0.5s ease;
+}
+#Step1 input[type="text"]:focus:not(input:valid),#Step1 input[type="email"]:focus:not(input:valid), #Step1 input[type="tel"]:focus:not(input:valid){
+    box-shadow: 0 0 5px 2px var(--Purplish-blue);
+}
+#Step1 input[type="text"]:invalid:not(input:focus),#Step1 input[type="email"]:invalid:not(input:focus), #Step1 input[type="tel"]:invalid:not(input:focus){
+    box-shadow: 0 0 5px 2px var(--Strawberry-red);
+}
+#Step1 input[type="text"]:valid,#Step1 input[type="email"]:valid, #Step1 input[type="tel"]:valid{
+    box-shadow: 0 0 5px 2px var(--Validation-Green);
 }
 #Step2 input[type="radio"]:not(input[name="time-plan"], input[name="service"]) {
     display: none;

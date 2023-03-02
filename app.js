@@ -4,7 +4,7 @@ function stepNavigation() {
     allFormsSubmits.forEach(a => a.addEventListener("click", () => {
         const formWidth = document.querySelectorAll("form")[0].offsetWidth
         const allForms = document.querySelectorAll(".all-forms form")
-        if(a.value === "Next Step") {
+        if(a.value === "Next Step" && a.parentElement.parentElement.querySelectorAll("input:invalid").length === 0) {
             allForms.forEach(f => f.style.transform += `translateX(${-formWidth}px)`)
             const sidebarStepsNotActive = document.querySelectorAll(".step-number:not(.active)")
             sidebarStepsNotActive[0].classList.add("active")
@@ -18,6 +18,19 @@ function stepNavigation() {
         
     }))    
 } 
+function navButtonCheck(){
+    const step1Button = document.querySelector("#Step1 .navigation input")
+    const step1InputFields = document.querySelectorAll("#Step1 input")
+    step1InputFields.forEach(a => a.addEventListener("input", () => {
+        const step1InvalidSteps = document.querySelectorAll("#Step1 input:invalid")
+        if(step1InvalidSteps.length === 0){
+            step1Button.classList.remove("blocked")
+        } else {
+            step1Button.classList.add("blocked")
+        }
+    }))
+}   
+navButtonCheck()
 stepNavigation()
 function timePlan() {
     const timePlanLabels = document.querySelectorAll(".time-plan label")
