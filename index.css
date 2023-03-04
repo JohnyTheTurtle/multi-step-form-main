@@ -156,6 +156,7 @@ input::placeholder{
 }
 .navigation input[value="Next Step"].blocked{
     background-color: var(--Cool-gray);
+    cursor: not-allowed;
 }
 .navigation input[value="Confirm"]{
     padding: 1rem 2rem;
